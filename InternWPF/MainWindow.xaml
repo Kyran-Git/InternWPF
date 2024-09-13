@@ -43,6 +43,7 @@
             <!-- 6 -->
         </Grid.ColumnDefinitions>
 
+        <!--MAIN TITLE-->
         <TextBlock
             Grid.Row="1"
             Grid.Column="1"
@@ -53,6 +54,7 @@
             FontWeight="Heavy"
             />
 
+        <!--DATE ENTRY-->
         <TextBlock
             Margin="0,10,5,10"
             Grid.Row="2"
@@ -61,6 +63,7 @@
             FontSize="22"
             FontFamily="Roboto Mono"/>
 
+        <!--TITLE ENTRY-->
         <TextBlock
             Margin="0,10,5,10"
             Grid.Row="3"
@@ -69,6 +72,7 @@
             FontSize="22"
             FontFamily="Roboto Mono"/>
 
+        <!--ACTIVITY ENTRY-->
         <TextBlock
             Margin="0,10,5,10"
             Grid.Row="4"
@@ -77,6 +81,7 @@
             FontSize="22"
             FontFamily="Roboto Mono"/>
 
+        <!--DATE PICK-->
         <DatePicker
             Name="dateTxt"
             Margin="0,10,5,10"
@@ -84,6 +89,7 @@
             Grid.Column="2"
             FontSize="20"/>
 
+        <!--SUBMIT TEXT-->
         <TextBlock
             Margin="0,10,5,10"
             Grid.Row="5"
@@ -92,12 +98,14 @@
             FontSize="22"
             Text="Submit?"/>
 
+        <!--TITLE TEXT-->
         <TextBox
             Name="titleTxt"
             Margin="0,10,5,10"
             Grid.Row="3"
             Grid.Column="2"/>
 
+        <!--ACTIVITY ENTRY-->
         <TextBox
             Name="actTxt"
             Margin="0,10,5,10"
@@ -108,6 +116,7 @@
             AcceptsReturn="True"
             MaxWidth="160"/>
 
+        <!--SUBMIT BUTTON-->
         <Button
             Margin="0,10,5,10"
             Grid.Column="2"
@@ -117,6 +126,7 @@
             Content="SUBMIT" 
             Click="sbmt_Click"/>
 
+        <!--SORY BY DATE BUTTON-->
         <Button
             Grid.Row="1"
             Grid.Column="5"
@@ -125,6 +135,7 @@
             Content="SORT BY DATE"
             Click="date_Click"/>
 
+        <!--SORT BY TITLE BUTTON-->
         <Button
             Grid.Row="2"
             Grid.Column="5"
@@ -133,6 +144,7 @@
             Content="SORT BY TITLE"
             Click="title_Click"/>
 
+        <!--LISTVIEW OF ALL ENTRIES-->
         <ListView Name="JournalListView" 
                   Grid.Row="1" Grid.RowSpan="6" Grid.Column="4" 
                   Margin="10" Background="White"
