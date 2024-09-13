@@ -35,10 +35,12 @@
             <!-- 2 -->
             <ColumnDefinition Width="auto"/>
             <!-- 3 -->
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
             <!-- 4 -->
-            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
             <!-- 5 -->
+            <ColumnDefinition Width="20"/>
+            <!-- 6 -->
         </Grid.ColumnDefinitions>
 
         <TextBlock
@@ -111,5 +113,23 @@
             Width="100"
             Content="SUBMIT" 
             Click="sbmt_Click"/>
+
+        <ListView Name="JournalListView" 
+                  Grid.Row="1" Grid.RowSpan="6" Grid.Column="4" 
+                  Margin="10" Background="White">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn 
+                        Header="Date" 
+                        DisplayMemberBinding="{Binding dateTxt}" 
+                        Width="100"/>
+                    <GridViewColumn 
+                        Header="Title" 
+                        DisplayMemberBinding="{Binding titleTxt}" 
+                        Width="200"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
     </Grid>
 </Window>
