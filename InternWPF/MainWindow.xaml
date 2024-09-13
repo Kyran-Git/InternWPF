@@ -116,7 +116,8 @@
 
         <ListView Name="JournalListView" 
                   Grid.Row="1" Grid.RowSpan="6" Grid.Column="4" 
-                  Margin="10" Background="White">
+                  Margin="10" Background="White"
+                  SelectionChanged="JournalListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn 
