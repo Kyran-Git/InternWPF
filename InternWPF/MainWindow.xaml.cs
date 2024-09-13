@@ -24,5 +24,10 @@ namespace InternWPF
         {
             InitializeComponent();
         }
+
+        private void sbmt_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
