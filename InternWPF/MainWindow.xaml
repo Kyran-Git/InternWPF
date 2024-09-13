@@ -104,8 +104,9 @@
             Grid.Row="4"
             Grid.Column="2"
             Height="200"
-            TextWrapping="WrapWithOverflow"
-            AcceptsReturn="True"/>
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            MaxWidth="160"/>
 
         <Button
             Margin="0,10,5,10"
@@ -115,6 +116,22 @@
             Width="100"
             Content="SUBMIT" 
             Click="sbmt_Click"/>
+
+        <Button
+            Grid.Row="1"
+            Grid.Column="5"
+            Height="35"
+            Width="100"
+            Content="SORT BY DATE"
+            Click="date_Click"/>
+
+        <Button
+            Grid.Row="2"
+            Grid.Column="5"
+            Height="35"
+            Width="100"
+            Content="SORT BY TITLE"
+            Click="title_Click"/>
 
         <ListView Name="JournalListView" 
                   Grid.Row="1" Grid.RowSpan="6" Grid.Column="4" 

@@ -54,6 +54,21 @@ namespace InternWPF
                                 "Journal Entry Details", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+
+        private void date_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void title_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SortListView(string SortBy)
+        {
+            
+        }
     }
 
     // Class to represent a journal entry
