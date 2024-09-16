@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace InternWPF
 {
@@ -55,23 +57,28 @@ namespace InternWPF
             }
         }
 
+        //Button for sorting by date
         private void date_Click(object sender, RoutedEventArgs e)
         {
-            
+            SortListView("Date");
         }
 
+        //Button for sorting by title
         private void title_Click(object sender, RoutedEventArgs e)
         {
-
+            SortListView("Title");
         }
 
-        private void SortListView(string SortBy)
+        //Sorting method
+        private void SortListView(string sortBy)
         {
-            
+            ICollectionView view = CollectionViewSource.GetDefaultView(JournalListView.ItemsSource);
+            view.SortDescriptions.Clear();
+            view.SortDescriptions.Add(new SortDescription(sortBy, ListSortDirection.Ascending));
         }
     }
 
-    // Class to represent a journal entry
+    // Journal entry class
     public class JournalEntry
     {
         public string dateTxt { get; set; }
