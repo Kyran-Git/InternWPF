@@ -30,6 +30,13 @@ namespace InternWPF
                 actTxt = actTxt.Text
             };
 
+            // Show error message if title and/or activity is empty
+            if (string.IsNullOrWhiteSpace(titleTxt.Text) || string.IsNullOrWhiteSpace(actTxt.Text))
+            {
+                MessageBox.Show("Please fill in both the title and activity fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             // Add the new entry to the list and sort it by date
             journalEntries.Add(newEntry);
             journalEntries = journalEntries.OrderBy(entry => entry.dateTxt).ToList();
@@ -57,25 +64,29 @@ namespace InternWPF
             }
         }
 
-        //Button for sorting by date
+        private ListSortDirection dateSortDirection = ListSortDirection.Ascending;
+        private ListSortDirection titleSortDirection = ListSortDirection.Ascending;
+
         private void date_Click(object sender, RoutedEventArgs e)
         {
-            SortListView("Date");
+            SortListView("dateTxt", ref dateSortDirection);
         }
 
-        //Button for sorting by title
         private void title_Click(object sender, RoutedEventArgs e)
         {
-            SortListView("Title");
+            SortListView("titleTxt", ref titleSortDirection);
         }
 
-        //Sorting method
-        private void SortListView(string sortBy)
+        private void SortListView(string sortBy, ref ListSortDirection sortDirection)
         {
             ICollectionView view = CollectionViewSource.GetDefaultView(JournalListView.ItemsSource);
             view.SortDescriptions.Clear();
-            view.SortDescriptions.Add(new SortDescription(sortBy, ListSortDirection.Ascending));
+            view.SortDescriptions.Add(new SortDescription(sortBy, sortDirection));
+
+            // Toggle the sort direction
+            sortDirection = sortDirection == ListSortDirection.Ascending ? ListSortDirection.Descending : ListSortDirection.Ascending;
         }
+
 
         private void actTxt_TextChanged(object sender, TextChangedEventArgs e)
         {
