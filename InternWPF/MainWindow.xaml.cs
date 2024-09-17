@@ -76,6 +76,11 @@ namespace InternWPF
             view.SortDescriptions.Clear();
             view.SortDescriptions.Add(new SortDescription(sortBy, ListSortDirection.Ascending));
         }
+
+        private void actTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 
     // Journal entry class

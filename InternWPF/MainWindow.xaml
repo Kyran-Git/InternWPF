@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="800">
 
+    <!--STYLING FOR UNIFORMITY-->
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="22"/>
@@ -17,16 +18,60 @@
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Margin" Value="0,10,5,10"/>
             <Setter Property="Width" Value="180"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="10"
+                                BorderThickness="5"
+                                BorderBrush="Black">
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="Button">
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="Margin" Value="0,10,5,10"/>
             <Setter Property="Width" Value="100"/>
             <Setter Property="Height" Value="40"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                        CornerRadius="10" 
+                        BorderBrush="Black" 
+                        BorderThickness="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="0,10,5,10"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DatePicker">
+                        <Border Background="White" 
+                        CornerRadius="10" 
+                        BorderBrush="Black" 
+                        BorderThickness="2">
+                            <Grid>
+                                <DatePickerTextBox x:Name="PART_TextBox" 
+                                           Background="Transparent"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
 
-    <Grid Background="AntiqueWhite">
+    <!--MAIN GRID-->
+    <Grid Background="LightGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <!-- 0 -->
@@ -72,6 +117,7 @@
             FontFamily="Roboto Mono"
             FontSize="40"
             FontWeight="Heavy"
+            Margin="20,0,0,0"
             />
 
         <!--DATE ENTRY-->
@@ -131,7 +177,8 @@
             Grid.Column="2"
             Height="200"
             TextWrapping="Wrap"
-            AcceptsReturn="True"/>
+            AcceptsReturn="True" TextChanged="actTxt_TextChanged"
+            />
 
         <!--SUBMIT BUTTON-->
         <Button
@@ -143,38 +190,43 @@
 
         <!--SORY BY DATE BUTTON-->
         <Button
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="5"
             Content="BY DATE"
             Click="date_Click"/>
 
         <!--SORT BY TITLE BUTTON-->
         <Button
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="5"
             Content="BY TITLE"
             Click="title_Click"/>
 
         <!--LISTVIEW OF ALL ENTRIES-->
-        <ListView Name="JournalListView" 
-                  Grid.Row="1" Grid.RowSpan="6" Grid.Column="4" 
-                  Margin="10" Background="White"
+        <Border  
+            CornerRadius="10" 
+            BorderBrush="Gray" 
+            BorderThickness="5"
+            Grid.Row="2" Grid.RowSpan="5" Grid.Column="4">
+            <ListView Name="JournalListView"
+                  Background="Gray"
                   SelectionChanged="JournalListView_SelectionChanged"
                   HorizontalAlignment="Stretch"
                   VerticalAlignment="Stretch">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn 
-                        Header="Date" 
-                        DisplayMemberBinding="{Binding dateTxt}" 
-                        Width="100"/>
-                    <GridViewColumn 
-                        Header="Title" 
-                        DisplayMemberBinding="{Binding titleTxt}" 
-                        Width="200"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn 
+                            Header="Date" 
+                            DisplayMemberBinding="{Binding dateTxt}" 
+                            Width="100"/>   
+                        <GridViewColumn 
+                            Header="Title" 
+                            DisplayMemberBinding="{Binding titleTxt}" 
+                            Width="200"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Border>
         
     </Grid>
 </Window>
