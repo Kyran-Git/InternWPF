@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InternWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="800">
+        Title="MainWindow" Height="650" Width="900">
 
     <!--STYLING FOR UNIFORMITY-->
     <Window.Resources>
@@ -75,7 +75,7 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <!-- Textbox for displaying the selected date -->
+                                <!-- Datepicker textbox -->
                                 <DatePickerTextBox x:Name="PART_TextBox"
                                            VerticalContentAlignment="Center"
                                            HorizontalAlignment="Stretch"
@@ -83,7 +83,7 @@
                                            Background="Transparent"
                                            BorderThickness="0"/>
 
-                                <!-- Button for opening the calendar -->
+                                <!-- Calendar button -->
                                 <Button x:Name="PART_Button"
                                 Grid.Column="1"
                                 Content="▼"
@@ -97,7 +97,7 @@
                                 Focusable="False"
                                 IsTabStop="False"/>
 
-                                <!-- Popup for the calendar -->
+                                <!-- Calendar popup -->
                                 <Popup x:Name="PART_Popup"
                                AllowsTransparency="True"
                                Placement="Bottom"
@@ -241,8 +241,9 @@
             Content="SUBMIT" 
             Click="sbmt_Click"/>
 
-        <!--SORY BY DATE BUTTON-->
+        <!--SORT BY DATE BUTTON-->
         <Button
+            Name="sortDateBtn"
             Grid.Row="2"
             Grid.Column="5"
             Content="BY DATE"
@@ -250,10 +251,19 @@
 
         <!--SORT BY TITLE BUTTON-->
         <Button
+            Name="sortTitleBtn"
             Grid.Row="3"
             Grid.Column="5"
             Content="BY TITLE"
             Click="title_Click"/>
+        
+        <!--DELETE BUTTON-->
+        <Button
+            Name="delBtn"
+            Grid.Row="4"
+            Grid.Column="5"
+            Content="DELETE"
+            Click="delete_Click" Margin="28,10,32,170"/>
 
         <!--LISTVIEW OF ALL ENTRIES-->
         <Border  

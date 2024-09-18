@@ -99,6 +99,29 @@ namespace InternWPF
         {
 
         }
+
+        private void delete_Click(object sender, RoutedEventArgs e)
+        {
+            // Get the selected journal entry
+            var selectedEntry = JournalListView.SelectedItem as JournalEntry;
+
+            if (selectedEntry != null)
+            {
+                // Remove the selected entry from the list
+                journalEntries.Remove(selectedEntry);
+
+                // Refresh the ListView
+                JournalListView.ItemsSource = null;
+                JournalListView.ItemsSource = journalEntries;
+
+                MessageBox.Show("Entry successfully deleted.", "Deleted", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                // Show error message if no entry is selected
+                MessageBox.Show("Please select an entry to delete.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 
     // Journal entry class
