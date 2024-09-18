@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InternWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="900">
+        Title="MainWindow" Height="650" Width="800">
 
     <!--STYLING FOR UNIFORMITY-->
     <Window.Resources>
@@ -263,7 +263,8 @@
             Grid.Row="4"
             Grid.Column="5"
             Content="DELETE"
-            Click="delete_Click" Margin="28,10,32,170"/>
+            Click="delete_Click"
+            Margin="0,10,5,172"/>
 
         <!--LISTVIEW OF ALL ENTRIES-->
         <Border  
