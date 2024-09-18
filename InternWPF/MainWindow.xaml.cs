@@ -25,10 +25,17 @@ namespace InternWPF
             // Create a new journal entry
             var newEntry = new JournalEntry
             {
-                dateTxt = dateTxt.SelectedDate.HasValue ? dateTxt.SelectedDate.Value.ToString("yyyy-MM-dd") : DateTime.Now.ToString("yyyy-MM-dd"),
+                dateTxt = dateTxt.SelectedDate.HasValue ? dateTxt.SelectedDate.Value.ToString("dd-MM-yyyy") : DateTime.Now.ToString("dd-MM-yyyy"),
                 titleTxt = titleTxt.Text,
                 actTxt = actTxt.Text
             };
+
+            // If date is null, show an error message
+            if (dateTxt == null)
+            {
+                MessageBox.Show("Please type in a date.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
             // Show error message if title and/or activity is empty
             if (string.IsNullOrWhiteSpace(titleTxt.Text) || string.IsNullOrWhiteSpace(actTxt.Text))

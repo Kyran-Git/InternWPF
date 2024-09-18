@@ -59,33 +59,66 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
-        <!-- Style for DatePicker -->
+        
+        <!-- DATEPICKER STYLE -->
         <Style TargetType="DatePicker">
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Margin" Value="0,10,5,10"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <!-- Ensure text is visible -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="DatePicker">
-                        <Border Background="White" 
-                            CornerRadius="10" 
-                            BorderBrush="Black" 
-                            BorderThickness="2">
+                        <Border Background="LightGray"
+                        CornerRadius="10"
+                        BorderThickness="2"
+                        BorderBrush="Black">
                             <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Textbox for displaying the selected date -->
                                 <DatePickerTextBox x:Name="PART_TextBox"
-                                               Background="Transparent"
-                                               ToolTip="Enter date in format: dd/MM/yyyy"
-                                               Foreground="Black"
-                                               VerticalContentAlignment="Center"/>
+                                           VerticalContentAlignment="Center"
+                                           HorizontalAlignment="Stretch"
+                                           Margin="5"
+                                           Background="Transparent"
+                                           BorderThickness="0"/>
+
+                                <!-- Button for opening the calendar -->
+                                <Button x:Name="PART_Button"
+                                Grid.Column="1"
+                                Content="▼"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Width="25"
+                                Height="25"
+                                Margin="5,0,5,0"
+                                Background="LightGray"
+                                BorderBrush="Transparent"
+                                Focusable="False"
+                                IsTabStop="False"/>
+
+                                <!-- Popup for the calendar -->
+                                <Popup x:Name="PART_Popup"
+                               AllowsTransparency="True"
+                               Placement="Bottom"
+                               StaysOpen="False"
+                               IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                               Focusable="False">
+                                    <Border Background="White"
+                                    BorderBrush="Black"
+                                    BorderThickness="1">
+                                        <Calendar x:Name="PART_Calendar"
+                                          IsTabStop="False"
+                                          SelectedDate="{Binding SelectedDate, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    </Border>
+                                </Popup>
                             </Grid>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+
     </Window.Resources>
 
 
