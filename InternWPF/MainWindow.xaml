@@ -7,88 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="800">
 
-    <!--STYLING FOR UNIFORMITY-->
-    <Window.Resources>
-        <!-- TEXTBLOCK STYLE -->
-        <Style TargetType="TextBlock">
-            <Setter Property="FontSize" Value="22"/>
-            <Setter Property="FontFamily" Value="Roboto Mono"/>
-            <Setter Property="Margin" Value="0,10,5,10"/>
-        </Style>
-
-        <!-- TEXTBOX STYLE -->
-        <Style TargetType="TextBox">
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Margin" Value="0,10,5,10"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <!-- TEXT VISIBILITY -->
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Border Background="{TemplateBinding Background}" 
-                            CornerRadius="10"
-                            BorderThickness="5"
-                            BorderBrush="Black">
-                            <ScrollViewer x:Name="PART_ContentHost" Margin="5"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- BUTTON STYLE -->
-        <Style TargetType="Button">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Margin" Value="0,10,5,10"/>
-            <Setter Property="Width" Value="100"/>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
-                            CornerRadius="10" 
-                            BorderBrush="Black" 
-                            BorderThickness="2">
-                            <ContentPresenter HorizontalAlignment="Center" 
-                                          VerticalAlignment="Center" 
-                                          Content="{TemplateBinding Content}"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- Style for DatePicker -->
-        <Style TargetType="DatePicker">
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Margin" Value="0,10,5,10"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <!-- Ensure text is visible -->
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="DatePicker">
-                        <Border Background="White" 
-                            CornerRadius="10" 
-                            BorderBrush="Black" 
-                            BorderThickness="2">
-                            <Grid>
-                                <DatePickerTextBox x:Name="PART_TextBox"
-                                               Background="Transparent"
-                                               ToolTip="Enter date in format: dd/MM/yyyy"
-                                               Foreground="Black"
-                                               VerticalContentAlignment="Center"/>
-                            </Grid>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
-
-
+   
     <!--MAIN GRID-->
     <Grid Background="LightGray">
         <Grid.RowDefinitions>
@@ -113,9 +32,9 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <!-- 0 -->
-            <ColumnDefinition Width="auto" MinWidth="95"/>
+            <ColumnDefinition Width="auto"/>
             <!-- 1 -->
-            <ColumnDefinition Width="auto" MinWidth="160"/>
+            <ColumnDefinition Width="auto"/>
             <!-- 2 -->
             <ColumnDefinition Width="auto"/>
             <!-- 3 -->
@@ -127,126 +46,6 @@
             <!-- 6 -->
         </Grid.ColumnDefinitions>
 
-        <!--MAIN TITLE-->
-        <TextBlock
-            Grid.Row="1"
-            Grid.Column="1"
-            Grid.ColumnSpan="4"
-            Text="Your Journal"
-            FontFamily="Roboto Mono"
-            FontSize="40"
-            FontWeight="Heavy"
-            Margin="20,0,0,0"
-            />
-
-        <!--DATE ENTRY-->
-        <TextBlock
-            Grid.Row="2"
-            Grid.Column="1"
-            Text="Date"
-            FontSize="22"
-            FontFamily="Roboto Mono"/>
-
-        <!--TITLE ENTRY-->
-        <TextBlock
-            Grid.Row="3"
-            Grid.Column="1"
-            Text="Title"
-            FontSize="22"
-            FontFamily="Roboto Mono"/>
-
-        <!--ACTIVITY ENTRY-->
-        <TextBlock
-            Grid.Row="4"
-            Grid.Column="1"
-            Text="Activities"
-            FontSize="22"
-            FontFamily="Roboto Mono"/>
-
-        <!--DATE PICK-->
-        <DatePicker
-            Width="180"
-            Name="dateTxt"
-            Margin="0,10,5,10"
-            Grid.Row="2"
-            Grid.Column="2"
-            FontSize="20"
-            />
-
-        <!--SUBMIT TEXT-->
-        <TextBlock
-            Margin="0,10,5,10"
-            Grid.Row="5"
-            Grid.Column="1"
-            VerticalAlignment="Center"
-            FontSize="22"
-            Text="Submit?"/>
-
-        <!--TITLE TEXT-->
-        <TextBox
-            Name="titleTxt"
-            Margin="0,10,5,10"
-            Grid.Row="3"
-            Grid.Column="2"/>
-
-        <!--ACTIVITY ENTRY-->
-        <TextBox
-            Name="actTxt"
-            Margin="0,10,5,10"
-            Grid.Row="4"
-            Grid.Column="2"
-            Height="200"
-            TextWrapping="Wrap"
-            AcceptsReturn="True" TextChanged="actTxt_TextChanged"
-            />
-
-        <!--SUBMIT BUTTON-->
-        <Button
-            Margin="0,10,5,10"
-            Grid.Column="2"
-            Grid.Row="5"
-            Content="SUBMIT" 
-            Click="sbmt_Click"/>
-
-        <!--SORY BY DATE BUTTON-->
-        <Button
-            Grid.Row="2"
-            Grid.Column="5"
-            Content="BY DATE"
-            Click="date_Click"/>
-
-        <!--SORT BY TITLE BUTTON-->
-        <Button
-            Grid.Row="3"
-            Grid.Column="5"
-            Content="BY TITLE"
-            Click="title_Click"/>
-
-        <!--LISTVIEW OF ALL ENTRIES-->
-        <Border  
-            CornerRadius="10" 
-            BorderBrush="Gray" 
-            BorderThickness="5"
-            Grid.Row="2" Grid.RowSpan="5" Grid.Column="4">
-            <ListView Name="JournalListView"
-                  Background="Gray"
-                  SelectionChanged="JournalListView_SelectionChanged"
-                  HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn 
-                            Header="Date" 
-                            DisplayMemberBinding="{Binding dateTxt}" 
-                            Width="100"/>   
-                        <GridViewColumn 
-                            Header="Title" 
-                            DisplayMemberBinding="{Binding titleTxt}" 
-                            Width="200"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </Border>
-        
+       
     </Grid>
 </Window>
