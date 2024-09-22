@@ -9,43 +9,17 @@
 
    
     <!--MAIN GRID-->
-    <Grid Background="LightGray">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <!-- 0 -->
-            <RowDefinition Height="auto"/>
-            <!-- 1 -->
-            <RowDefinition Height="auto"/>
-            <!-- 2 -->
-            <RowDefinition Height="auto"/>
-            <!-- 3 -->
-            <RowDefinition Height="auto"/>
-            <!-- 4 -->
-            <RowDefinition Height="auto"/>
-            <!-- 5 -->
-            <RowDefinition Height="*"/>
-            <!-- 6 -->
-            <RowDefinition Height="20"/>
-            <!-- 7 -->
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <!-- 0 -->
-            <ColumnDefinition Width="auto"/>
-            <!-- 1 -->
-            <ColumnDefinition Width="auto"/>
-            <!-- 2 -->
-            <ColumnDefinition Width="auto"/>
-            <!-- 3 -->
-            <ColumnDefinition Width="auto"/>
-            <!-- 4 -->
-            <ColumnDefinition Width="*"/>
-            <!-- 5 -->
-            <ColumnDefinition Width="20"/>
-            <!-- 6 -->
-        </Grid.ColumnDefinitions>
-
-       
+    <Grid>
+      <!--Window Border-->
+        <Border Background="#76ABAE"
+                CornerRadius="20"/>
+        
+        <!--Main Grid-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="228"/>
+                <ColumnDefinition Width="622"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
     </Grid>
 </Window>
