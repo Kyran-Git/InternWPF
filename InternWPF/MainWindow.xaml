@@ -5,13 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InternWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="800">
+        Title="MainWindow" 
+        Height="600"
+        Width="850"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent">
 
    
     <!--MAIN GRID-->
     <Grid>
       <!--Window Border-->
-        <Border Background="#76ABAE"
+        <Border Background="#3B3030"
                 CornerRadius="20"/>
         
         <!--Main Grid-->
