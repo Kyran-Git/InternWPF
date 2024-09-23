@@ -6,5 +6,21 @@
     <DataTemplate DataType="{x:Type vm:HomeVM}">
         <view:Home />
     </DataTemplate>
-    
+
+    <DataTemplate DataType="{x:Type vm:UsersVM}">
+        <view:Users />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:Set}">
+        <view:Home />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:HomeVM}">
+        <view:Home />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:HomeVM}">
+        <view:Home />
+    </DataTemplate>
+
 </ResourceDictionary>

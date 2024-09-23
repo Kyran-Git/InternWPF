@@ -62,6 +62,7 @@
     <Compile Include="ViewModel\HomeVM.cs" />
     <Compile Include="ViewModel\JournalsVM.cs" />
     <Compile Include="ViewModel\NavigationVM.cs" />
+    <Compile Include="ViewModel\SettingVM.cs" />
     <Compile Include="ViewModel\UsersVM.cs" />
     <Compile Include="View\Entries.xaml.cs">
       <DependentUpon>Entries.xaml</DependentUpon>
