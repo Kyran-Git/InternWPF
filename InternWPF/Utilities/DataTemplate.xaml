@@ -2,5 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:vm="clr-namespace:InternWPF.ViewModel"
                     xmlns:view="clr-namespace:InternWPF.View">
+
+    <DataTemplate DataType="{x:Type vm:HomeVM}">
+        <view:Home />
+    </DataTemplate>
     
 </ResourceDictionary>

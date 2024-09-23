@@ -11,8 +11,8 @@
     <!--MAIN GRID-->
     <Grid>
       <!--Window Border-->
-        <Border Background="#76ABAE"
-                CornerRadius="20"/>
+        <Border Background="#201E43"
+                CornerRadius="25"/>
         
         <!--Main Grid-->
         <Grid>
