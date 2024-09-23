@@ -55,9 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utilities\RelayCommand.cs" />
+    <Compile Include="Utilities\VMBase.cs" />
     <Compile Include="ViewModel\EntriesVM.cs" />
     <Compile Include="ViewModel\HomeVM.cs" />
     <Compile Include="ViewModel\JournalsVM.cs" />
+    <Compile Include="ViewModel\NavigationVM.cs" />
     <Compile Include="ViewModel\UsersVM.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -103,7 +106,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Styles\" />
-    <Folder Include="Utilities\" />
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
