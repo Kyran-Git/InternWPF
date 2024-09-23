@@ -11,16 +11,16 @@
         <view:Users />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:Set}">
-        <view:Home />
+    <DataTemplate DataType="{x:Type vm:SettingVM}">
+        <view:Settings />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:HomeVM}">
-        <view:Home />
+    <DataTemplate DataType="{x:Type vm:JournalsVM}">
+        <view:Journals />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:HomeVM}">
-        <view:Home />
+    <DataTemplate DataType="{x:Type vm:EntriesVM}">
+        <view:Entries />
     </DataTemplate>
 
 </ResourceDictionary>
