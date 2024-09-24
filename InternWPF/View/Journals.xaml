@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800"
-             Style="{StaticResource Page_Style}">>
+             Style="{StaticResource Page_Style}">
     <Grid>
         <Border CornerRadius="0,20,20,0" Margin="0,5,5,0">
             <Image Source="/Images/img_journal.png"
