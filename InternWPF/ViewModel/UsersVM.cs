@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace InternWPF.ViewModel
 {
-    internal class UsersVM
+    class UsersVM
     {
+
     }
 }

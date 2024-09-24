@@ -8,6 +8,6 @@ namespace InternWPF.Model
 {
     public class PageModel
     {
-        public int userCount {  get; set; }
+        public bool LocationStatus { get; set; }
     }
 }
