@@ -65,12 +65,27 @@
                                   Height="40"
                                   VerticalAlignment="Top"
                                   HorizontalAlignment="Left"
-                                  Margin="10"
+                                  Margin="18"
                                   IsChecked="True"
-                                  Background="Transparent"
+                                  Background="#212529"
                                   Foreground="White"
+                                  BorderBrush="Transparent"
+                                  BorderThickness="0"
                                   Checked="SidebarToggleButton_Checked"
-                                  Unchecked="SidebarToggleButton_Unchecked"/>
+                                  Unchecked="SidebarToggleButton_Unchecked">
+                        
+                        <ToggleButton.Template>
+                            <ControlTemplate TargetType="ToggleButton">
+                                <Border Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="20">  
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </ToggleButton.Template>
+                    </ToggleButton>
 
                     <!-- Home -->
                     <Menu:Button 
