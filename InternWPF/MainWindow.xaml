@@ -15,94 +15,112 @@
         WindowStyle="None"
         Background="Transparent">
 
+    <Window.Resources>
+        <!-- BooleanToVisibilityConverter Definition -->
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+
+        <!-- Animation Storyboard for Sidebar Width -->
+        <Storyboard x:Key="ExpandSidebarStoryboard">
+            <DoubleAnimation Storyboard.TargetName="SidebarGrid"
+                             Storyboard.TargetProperty="Width"
+                             To="228" Duration="0:0:0.5"/>
+        </Storyboard>
+
+        <Storyboard x:Key="CollapseSidebarStoryboard">
+            <DoubleAnimation Storyboard.TargetName="SidebarGrid"
+                             Storyboard.TargetProperty="Width"
+                             To="80" Duration="0:0:0.5"/>
+        </Storyboard>
+    </Window.Resources>
+
     <Window.DataContext>
         <vm:NavigationVM />
     </Window.DataContext>
 
-
     <!--MAIN GRID-->
     <Grid>
-      <!--Window Border-->
+        <!--Window Border-->
         <Border Background="#212529"
                 CornerRadius="30"/>
-        
+
         <!--Main Grid-->
         <Grid>
-            
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="228"/>
-                <ColumnDefinition Width="622"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid HorizontalAlignment="Left"
-                  Width="228">
-
+            <!-- Sidebar Grid -->
+            <Grid x:Name="SidebarGrid"
+                  Width="80"
+                  HorizontalAlignment="Left">
                 <Border Background="#272B2F"
                         CornerRadius="30,0,0,30"/>
 
-                <StackPanel
-                    Height="400"
-                    Width="228">
-                    
-                    <!--Home-->
+                <StackPanel>
+                    <!-- Minimize/Expand Button -->
+                    <ToggleButton x:Name="SidebarToggleButton"
+                                  Content="☰"
+                                  Width="40"
+                                  Height="40"
+                                  VerticalAlignment="Top"
+                                  HorizontalAlignment="Left"
+                                  Margin="10"
+                                  IsChecked="True"
+                                  Background="Transparent"
+                                  Foreground="White"
+                                  Checked="SidebarToggleButton_Checked"
+                                  Unchecked="SidebarToggleButton_Unchecked"/>
 
+                    <!-- Home -->
                     <Menu:Button 
                         Style="{StaticResource Button_Style}"
-                        Command="{Binding HomeCommand}"
-                        IsChecked="True">
-
+                        Command="{Binding HomeCommand}">
                         <Grid>
                             <Image Source="Images/img_home.png"
                                    Style="{StaticResource Image_Style}" />
-
                             <TextBlock Text="Home"
-                                       Style="{StaticResource Text_Style}" />
+                                       Style="{StaticResource Text_Style}"
+                                       Visibility="{Binding IsChecked, ElementName=SidebarToggleButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                         </Grid>
                     </Menu:Button>
 
-                    
-                    <!--Journals-->
-                    
+                    <!-- Journals -->
                     <Menu:Button 
                         Style="{StaticResource Button_Style}"
                         Command="{Binding JournalsCommand}">
-
                         <Grid>
                             <Image Source="Images/img_journal.png"
-                                Style="{StaticResource Image_Style}" />
-
+                                   Style="{StaticResource Image_Style}" />
                             <TextBlock Text="Journals"
-                                Style="{StaticResource Text_Style}" />
+                                       Style="{StaticResource Text_Style}"
+                                       Visibility="{Binding IsChecked, ElementName=SidebarToggleButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                         </Grid>
                     </Menu:Button>
-                    
-                    <!--Entries-->
 
-                    <Menu:Button
+                    <!-- Entries -->
+                    <Menu:Button 
                         Style="{StaticResource Button_Style}"
                         Command="{Binding EntriesCommand}">
-
                         <Grid>
                             <Image Source="Images/img_entries.png"
-                                   Style="{StaticResource Image_Style}"/>
-
+                                   Style="{StaticResource Image_Style}" />
                             <TextBlock Text="Entries"
-                                       Style="{StaticResource Text_Style}"/>
+                                       Style="{StaticResource Text_Style}"
+                                       Visibility="{Binding IsChecked, ElementName=SidebarToggleButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                         </Grid>
                     </Menu:Button>
-                    
-                    <!--Settings-->
 
-                    <Menu:Button
+                    <!-- Settings -->
+                    <Menu:Button 
                         Style="{StaticResource Button_Style}"
                         Command="{Binding SettingsCommand}">
-
                         <Grid>
                             <Image Source="Images/img_setting.png"
-                                   Style="{StaticResource Image_Style}"/>
-
+                                   Style="{StaticResource Image_Style}" />
                             <TextBlock Text="Settings"
-                                       Style="{StaticResource Text_Style}"/>
+                                       Style="{StaticResource Text_Style}"
+                                       Visibility="{Binding IsChecked, ElementName=SidebarToggleButton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                         </Grid>
                     </Menu:Button>
 
@@ -110,19 +128,15 @@
 
             </Grid>
 
+            <!-- Content Area -->
             <Grid Grid.Column="1">
-
                 <ContentControl x:Name="Pages"
                                 Content="{Binding CurrentView}" />
-
             </Grid>
-            
         </Grid>
 
         <Button x:Name="CloseApp"
                 Style="{StaticResource ExitApp}"
                 Click="CloseApp_Click" />
-
-
     </Grid>
 </Window>

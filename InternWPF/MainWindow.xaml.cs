@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
+﻿using System.Windows;
+using System.Windows.Media.Animation;
 
 namespace InternWPF
 {
@@ -27,6 +14,17 @@ namespace InternWPF
         {
             Close();
         }
+
+        private void SidebarToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            Storyboard expandStoryboard = (Storyboard)FindResource("ExpandSidebarStoryboard");
+            expandStoryboard.Begin();
+        }
+
+        private void SidebarToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Storyboard collapseStoryboard = (Storyboard)FindResource("CollapseSidebarStoryboard");
+            collapseStoryboard.Begin();
+        }
     }
-       
 }
