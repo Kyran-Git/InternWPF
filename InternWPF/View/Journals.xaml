@@ -11,7 +11,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <!-- For entries ListView -->
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -21,13 +22,27 @@
 
         <!-- Select Journal -->
         <TextBlock Text="Select Journal" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
-        <ComboBox Name="journalList" Grid.Row="0" Grid.Column="1" Margin="10,5" />
+        <ComboBox Name="journalList" Grid.Row="0" Grid.Column="1" Margin="10,5" 
+                  ItemsSource="{Binding Journals}" 
+                  SelectedItem="{Binding SelectedJournal}" 
+                  DisplayMemberPath="JournalName"/>
 
         <!-- Create New Journal -->
         <TextBlock Text="Create New Journal" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
-        <TextBox Name="newJournalTxt" Grid.Row="1" Grid.Column="1" Margin="10,5" />
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="10,5">
+            <TextBox Name="newJournalTxt" Width="150" Text="{Binding NewJournalName}"/>
+            <Button Content="Create" Width="80" Margin="10,0,0,0" Command="{Binding CreateJournalCommand}"/>
+        </StackPanel>
 
-        <!-- Create Button -->
-        <Button Content="Create" Grid.Row="2" Grid.Column="1" Width="120" HorizontalAlignment="Right" Click="Create_Click"/>
+        <!-- Entries ListView -->
+        <ListView Name="entriesListView" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,5"
+                  ItemsSource="{Binding SelectedJournalEntries}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding EntryDate}" Width="100"/>
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="200"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

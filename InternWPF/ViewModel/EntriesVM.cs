@@ -47,11 +47,6 @@ namespace InternWPF.ViewModel
 
         public ICommand SubmitCommand { get; }
 
-        public EntriesVMl()
-        {
-            SubmitCommand = new RelayCommand(OnSubmit, CanSubmit);
-        }
-
         private bool CanSubmit(object parameter)
         {
             // Only allow submit if all fields are filled in
