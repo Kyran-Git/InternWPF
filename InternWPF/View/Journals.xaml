@@ -1,15 +1,33 @@
 ﻿<UserControl x:Class="InternWPF.View.Journals"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:InternWPF.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
-             d:DesignWidth="800"
-             Style="{StaticResource Page_Style}">
-    <Grid>
-        <Border CornerRadius="0,20,20,0" Margin="0,5,5,0">
-        </Border>
+             d:DesignWidth="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Select Journal -->
+        <TextBlock Text="Select Journal" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+        <ComboBox Name="journalList" Grid.Row="0" Grid.Column="1" Margin="10,5" />
+
+        <!-- Create New Journal -->
+        <TextBlock Text="Create New Journal" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+        <TextBox Name="newJournalTxt" Grid.Row="1" Grid.Column="1" Margin="10,5" />
+
+        <!-- Create Button -->
+        <Button Content="Create" Grid.Row="2" Grid.Column="1" Width="120" HorizontalAlignment="Right" Click="Create_Click"/>
     </Grid>
 </UserControl>

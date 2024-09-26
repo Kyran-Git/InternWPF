@@ -15,14 +15,35 @@ using System.Windows.Shapes;
 
 namespace InternWPF.View
 {
-    /// <summary>
-    /// Interaction logic for Journals.xaml
-    /// </summary>
     public partial class Journals : UserControl
     {
         public Journals()
         {
             InitializeComponent();
+
+            // Early examples
+            journalList.Items.Add("Travel Journal");
+            journalList.Items.Add("Work Journal");
+            journalList.Items.Add("Personal Diary");
+        }
+
+        // Event handler for Create button
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            string newJournal = newJournalTxt.Text;
+
+            if (string.IsNullOrWhiteSpace(newJournal))
+            {
+                MessageBox.Show("Please enter a journal name.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                // Logic to add a new journal (placeholder)
+                journalList.Items.Add(newJournal);
+                newJournalTxt.Clear();
+
+                MessageBox.Show($"Journal '{newJournal}' created successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }
