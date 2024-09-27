@@ -24,18 +24,54 @@
         </Grid.ColumnDefinitions>
 
         <!-- Date Entry -->
-        <TextBlock Text="Date" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
-        <DatePicker Name="dateTxt" Grid.Row="0" Grid.Column="1" Margin="10,5"/>
+        <TextBlock 
+            Text="Date" 
+            Grid.Row="0" 
+            Grid.Column="0" 
+            VerticalAlignment="Center"/>
+        
+        <DatePicker 
+            Name="dateTxt" 
+            Grid.Row="0" 
+            Grid.Column="1" 
+            Margin="10,5"/>
 
         <!-- Title Entry -->
-        <TextBlock Text="Title" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
-        <TextBox Name="titleTxt" Grid.Row="1" Grid.Column="1" Margin="10,5" />
+        <TextBlock 
+            Text="Title" 
+            Grid.Row="1" 
+            Grid.Column="0" 
+            VerticalAlignment="Center"/>
+        
+        <TextBox 
+            Name="titleTxt" 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            Margin="10,5" />
 
         <!-- Activity Entry -->
-        <TextBlock Text="Activities" Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" />
-        <TextBox Name="actTxt" Grid.Row="2" Grid.Column="1" Margin="10,5" Height="200" TextWrapping="Wrap" AcceptsReturn="True"/>
+        <TextBlock 
+            Text="Activities" 
+            Grid.Row="2" 
+            Grid.Column="0" 
+            VerticalAlignment="Top" />
+        
+        <TextBox 
+            Name="actTxt" 
+            Grid.Row="2" 
+            Grid.Column="1" 
+            Margin="10,5" 
+            Height="200" 
+            TextWrapping="Wrap" 
+            AcceptsReturn="True"/>
 
         <!-- Submit Button -->
-        <Button Content="Submit" Grid.Row="4" Grid.Column="1" Width="120" HorizontalAlignment="Right" Click="Submit_Click" />
+        <Button 
+            Content="Submit" 
+            Grid.Row="4" 
+            Grid.Column="1" 
+            Width="120" 
+            HorizontalAlignment="Right" 
+            Click="Submit_Click" />
     </Grid>
 </UserControl>
