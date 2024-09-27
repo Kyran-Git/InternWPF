@@ -2,7 +2,12 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style x:Key="datePick_Style"
-           TargetType="{x:Type UserControl}">
+           TargetType="DatePicker">
+        
+    </Style>
+
+    <Style x:Key="dateText_Style"
+           TargetType="DatePickerTextBox">
         
     </Style>
 </ResourceDictionary>
