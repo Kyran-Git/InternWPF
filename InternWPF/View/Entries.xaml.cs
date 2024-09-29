@@ -40,5 +40,10 @@ namespace InternWPF.View
                 MessageBox.Show($"Journal Entry Submitted:\nDate: {date}\nTitle: {title}\nActivities: {activity}", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+
+        private void actTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
