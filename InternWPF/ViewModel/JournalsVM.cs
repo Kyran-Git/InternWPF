@@ -9,8 +9,16 @@ using System.Windows.Input;
 
 namespace InternWPF.ViewModel
 {
+
     class JournalsVM : Utilities.VMBase
     {
+        public JournalsVM()
+        {
+            Journals = new ObservableCollection<Journal>(); 
+            SelectedJournalEntries = new ObservableCollection<JournalEntry>();  
+            CreateJournalCommand = new RelayCommand(OnCreateJournal, CanCreateJournal);
+        }
+
         private string _newJournalName;
         private Journal _selectedJournal;
 
