@@ -18,6 +18,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Styles/ListView.xaml"/>
+                <ResourceDictionary Source="/Styles/TextBox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -55,11 +56,13 @@
             Grid.Column="1" 
             Orientation="Horizontal" 
             Margin="10,5">
-            <TextBox 
+            <TextBox
+                Style="{StaticResource TextBox_Style}"
                 Name="newJournalTxt" 
                 Width="150" 
                 Text="{Binding NewJournalName}"/>
-            <Button 
+            <Button
+                Style="{StaticResource Submit_Style}"
                 Content="Create" 
                 Width="80" 
                 Margin="10,0,0,0" 
