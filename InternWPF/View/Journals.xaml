@@ -40,10 +40,11 @@
 
         <!-- Select Journal -->
         <TextBlock Text="Select Journal" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
-        <ComboBox Name="journalList" Grid.Row="0" Grid.Column="1" Margin="10,5" 
-                  ItemsSource="{Binding Journals}" 
-                  SelectedItem="{Binding SelectedJournal}" 
-                  DisplayMemberPath="JournalName"/>
+        <ComboBox 
+            Name="journalList" Grid.Row="0" Grid.Column="1" Margin="10,5" 
+            ItemsSource="{Binding Journals}" 
+            SelectedItem="{Binding SelectedJournal}" 
+            DisplayMemberPath="JournalName"/>
 
         <!-- Create New Journal -->
         <TextBlock 
