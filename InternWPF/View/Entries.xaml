@@ -4,9 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:InternWPF.View"
+             xmlns:vm="clr-namespace:InternWPF.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <!-- Bind to EntriesVM -->
+        <vm:EntriesVM />
+    </UserControl.DataContext>
 
     <!-- Reference the styles -->
     <UserControl.Resources>
@@ -16,7 +22,8 @@
                 <ResourceDictionary Source="/Styles/DatePick.xaml"/>
                 <ResourceDictionary Source="/Styles/TextBlock.xaml"/>
                 <ResourceDictionary Source="/Styles/Button.xaml"/>
-                
+                <ResourceDictionary Source="/Styles/TextBox.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -36,10 +43,17 @@
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
 
+        <!-- Select Journal -->
+        <TextBlock Text="Select Journal" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+        <ComboBox Name="journalList" Grid.Row="0" Grid.Column="1" Margin="10,10" 
+          ItemsSource="{Binding Journals}" 
+          SelectedItem="{Binding SelectedJournal}" 
+          DisplayMemberPath="JournalName"/>
+
         <!-- Date Entry -->
         <TextBlock 
             Text="Date" 
-            Grid.Row="0" 
+            Grid.Row="1" 
             Grid.Column="0" 
             VerticalAlignment="Center"
             Style="{StaticResource textBlock_Style}"/>
@@ -47,7 +61,7 @@
 
         <DatePicker 
             Name="dateTxt" 
-            Grid.Row="0" 
+            Grid.Row="1" 
             Grid.Column="1" 
             Style="{StaticResource datePick_Style}"
             Margin="10,5"/>
@@ -55,31 +69,34 @@
             
         <TextBlock 
             Text="Title" 
-            Grid.Row="1" 
+            Grid.Row="2" 
             Grid.Column="0" 
             VerticalAlignment="Center"
             Style="{StaticResource textBlock_Style}"/>
 
-        <TextBox 
+        <TextBox
+            Style="{StaticResource TextBox_Style}"
             Name="titleTxt" 
-            Grid.Row="1" 
+            Grid.Row="2" 
             Grid.Column="1" 
-            Margin="10,5" />
+            Margin="10,10" />
 
                 
         <TextBlock 
             Text="Activities" 
-            Grid.Row="2" 
+            Grid.Row="3" 
             Grid.Column="0" 
             VerticalAlignment="Top"
             Style="{StaticResource textBlock_Style}"/>
 
 
-        <TextBox 
+        <TextBox
+            Style="{StaticResource TextBox_Style}"
             Name="actTxt" 
-            Grid.Row="2" 
+            Grid.Row="3" 
             Grid.Column="1" 
-            Margin="10,5" 
+            Margin="10,10" 
+            VerticalAlignment="Top"
             Height="200" 
             TextWrapping="Wrap" 
             AcceptsReturn="True" TextChanged="actTxt_TextChanged"/>
@@ -90,7 +107,6 @@
             Content="Submit" 
             Grid.Row="4" 
             Grid.Column="1" 
-            Width="120" 
             HorizontalAlignment="Right" 
             Click="Submit_Click" />
     </Grid>

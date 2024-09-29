@@ -1,11 +1,7 @@
-﻿using InternWPF.Utilities;
-using Page_Navigation_App.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Page_Navigation_App.Utilities;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
+using System;
 
 namespace InternWPF.ViewModel
 {
@@ -14,6 +10,10 @@ namespace InternWPF.ViewModel
         private DateTime? _date;
         private string _title;
         private string _activities;
+
+        public Journal SelectedJournal { get; set; }
+        public ObservableCollection<JournalEntry> SelectedJournalEntries { get; set; }
+
 
         public DateTime? Date
         {
@@ -47,6 +47,11 @@ namespace InternWPF.ViewModel
 
         public ICommand SubmitCommand { get; }
 
+        public EntriesVM()
+        {
+            SubmitCommand = new RelayCommand(OnSubmit, CanSubmit);
+        }
+
         private bool CanSubmit(object parameter)
         {
             // Only allow submit if all fields are filled in
@@ -55,9 +60,23 @@ namespace InternWPF.ViewModel
 
         private void OnSubmit(object parameter)
         {
-            // Logic to submit the journal entry (e.g., save to a database or a list)
-            // Example:
-            Console.WriteLine($"Submitted Entry: {Date}, {Title}, {Activities}");
+            if (SelectedJournal != null)
+            {
+                var newEntry = new JournalEntry
+                {
+                    EntryDate = Date?.ToString("d"),
+                    Title = Title,
+                    Activities = Activities
+                };
+
+                SelectedJournal.Entries.Add(newEntry);
+                SelectedJournalEntries.Add(newEntry);
+
+                // Clear fields after submission
+                Date = null;
+                Title = string.Empty;
+                Activities = string.Empty;
+            }
         }
     }
 }

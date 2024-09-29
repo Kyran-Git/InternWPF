@@ -4,9 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:InternWPF.View"
+             xmlns:vm="clr-namespace:InternWPF.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <!-- Bind to JournalsVM -->
+        <vm:JournalsVM />
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/ListView.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -29,19 +45,49 @@
                   DisplayMemberPath="JournalName"/>
 
         <!-- Create New Journal -->
-        <TextBlock Text="Create New Journal" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="10,5">
-            <TextBox Name="newJournalTxt" Width="150" Text="{Binding NewJournalName}"/>
-            <Button Content="Create" Width="80" Margin="10,0,0,0" Command="{Binding CreateJournalCommand}"/>
+        <TextBlock 
+            Text="Create New Journal" 
+            Grid.Row="1" Grid.Column="0" 
+            VerticalAlignment="Center"/>
+        
+        <StackPanel 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            Orientation="Horizontal" 
+            Margin="10,5">
+            <TextBox 
+                Name="newJournalTxt" 
+                Width="150" 
+                Text="{Binding NewJournalName}"/>
+            <Button 
+                Content="Create" 
+                Width="80" 
+                Margin="10,0,0,0" 
+                Command="{Binding CreateJournalCommand}"/>
         </StackPanel>
 
         <!-- Entries ListView -->
-        <ListView Name="entriesListView" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,5"
-                  ItemsSource="{Binding SelectedJournalEntries}">
+        <ListView 
+            Style="{StaticResource ListView_Style}"
+            Name="entriesListView" 
+            Grid.Row="2" Grid.Column="0" 
+            Grid.ColumnSpan="2" 
+            Margin="10,5"
+            ItemsSource="{Binding SelectedJournalEntries}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding EntryDate}" Width="100"/>
-                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="200"/>
+                    <GridViewColumn 
+                        Header="Date" 
+                        DisplayMemberBinding="{Binding Date}" 
+                        Width="100"/>
+                    <GridViewColumn 
+                        Header="Title" 
+                        DisplayMemberBinding="{Binding Title}" 
+                        Width="200"/>
+                    <GridViewColumn 
+                        Header="Activities" 
+                        DisplayMemberBinding="{Binding Activities}" 
+                        Width="300"/>
                 </GridView>
             </ListView.View>
         </ListView>

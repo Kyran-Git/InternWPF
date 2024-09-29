@@ -29,8 +29,13 @@ namespace InternWPF.ViewModel
         private void Users(object obj) => CurrentView = new UsersVM();
         private void Settings(object obj) => CurrentView = new SettingVM();
 
+        private MainViewModel _mainViewModel;
+
+
         public NavigationVM()
         {
+            _mainViewModel = new MainViewModel();
+
             HomeCommand = new RelayCommand(Home);
             JournalsCommand = new RelayCommand(Journals);
             EntriesCommand = new RelayCommand(Entries);

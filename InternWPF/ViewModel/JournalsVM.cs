@@ -78,5 +78,6 @@ namespace InternWPF.ViewModel
     {
         public string EntryDate { get; set; }
         public string Title { get; set; }
+        public string Activities { get; set; }
     }
 }

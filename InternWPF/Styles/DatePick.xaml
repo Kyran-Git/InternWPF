@@ -23,6 +23,7 @@
                                                HorizontalAlignment="Stretch"
                                                Margin="5"
                                                Background="Transparent"
+                                               Foreground="Black"
                                                BorderThickness="0"/>
 
                             <!-- Calendar button -->
