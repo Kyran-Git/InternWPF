@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InternWPF.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,9 +18,10 @@ namespace InternWPF.View
 {
     public partial class Entries : UserControl
     {
-        public Entries()
+        public Entries(JournalsVM journalsVM)
         {
             InitializeComponent();
+            this.DataContext = new EntriesVM(journalsVM); // Pass the JournalsVM to the EntriesVM
         }
 
         // Event handler for Submit button

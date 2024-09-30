@@ -25,7 +25,7 @@ namespace InternWPF.ViewModel
 
         private void Home(object obj) => CurrentView = new HomeVM();
         private void Journals(object obj) => CurrentView = new JournalsVM();
-        private void Entries(object obj) => CurrentView = new EntriesVM();
+        private void Entries(object obj) => CurrentView = new EntriesVM(_mainViewModel.JournalsVM);
         private void Users(object obj) => CurrentView = new UsersVM();
         private void Settings(object obj) => CurrentView = new SettingVM();
 

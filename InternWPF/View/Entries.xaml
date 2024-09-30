@@ -9,11 +9,6 @@
              d:DesignHeight="450" 
              d:DesignWidth="800">
 
-    <UserControl.DataContext>
-        <!-- Bind to EntriesVM -->
-        <vm:EntriesVM />
-    </UserControl.DataContext>
-
     <!-- Reference the styles -->
     <UserControl.Resources>
         <ResourceDictionary>

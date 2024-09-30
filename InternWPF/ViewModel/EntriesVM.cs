@@ -5,15 +5,47 @@ using System;
 
 namespace InternWPF.ViewModel
 {
-    class EntriesVM : Utilities.VMBase
+    public class EntriesVM : Utilities.VMBase
     {
         private DateTime? _date;
         private string _title;
         private string _activities;
 
-        public Journal SelectedJournal { get; set; }
-        public ObservableCollection<JournalEntry> SelectedJournalEntries { get; set; }
+        private JournalsVM _journalsVM;
 
+        public ObservableCollection<JournalEntry> SelectedJournalEntries { get; set; } = new ObservableCollection<JournalEntry>();
+
+        // Constructor requiring JournalsVM
+        public EntriesVM(JournalsVM journalsVM)
+        {
+            _journalsVM = journalsVM;
+            _journalsVM.PropertyChanged += JournalsVM_PropertyChanged; // Subscribe to changes in JournalsVM
+        }
+
+        private void JournalsVM_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(JournalsVM.SelectedJournal))
+            {
+                SelectedJournal = _journalsVM.SelectedJournal; // Update selected journal in EntriesVM
+            }
+        }
+
+        private Journal _selectedJournal;
+        public Journal SelectedJournal
+        {
+            get => _selectedJournal;
+            set
+            {
+                if (_selectedJournal != value)
+                {
+                    _selectedJournal = value;
+                    OnPropertyChanged();
+                    LoadEntries(); // Load entries when a journal is selected
+                }
+            }
+        }
+
+        public ObservableCollection<Journal> Journals => _journalsVM.Journals;
 
         public DateTime? Date
         {
@@ -47,14 +79,8 @@ namespace InternWPF.ViewModel
 
         public ICommand SubmitCommand { get; }
 
-        public EntriesVM()
-        {
-            SubmitCommand = new RelayCommand(OnSubmit, CanSubmit);
-        }
-
         private bool CanSubmit(object parameter)
         {
-            // Only allow submit if all fields are filled in
             return Date.HasValue && !string.IsNullOrWhiteSpace(Title) && !string.IsNullOrWhiteSpace(Activities);
         }
 
@@ -76,6 +102,18 @@ namespace InternWPF.ViewModel
                 Date = null;
                 Title = string.Empty;
                 Activities = string.Empty;
+            }
+        }
+
+        private void LoadEntries()
+        {
+            SelectedJournalEntries.Clear();
+            if (SelectedJournal != null)
+            {
+                foreach (var entry in SelectedJournal.Entries)
+                {
+                    SelectedJournalEntries.Add(entry);
+                }
             }
         }
     }

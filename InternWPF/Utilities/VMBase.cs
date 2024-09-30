@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 
 namespace InternWPF.Utilities
 {
-   class VMBase : INotifyPropertyChanged
+   public class VMBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string propName = null)
