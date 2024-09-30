@@ -43,7 +43,7 @@ namespace InternWPF.View
             }
         }
 
-        private void actTxt_TextChanged(object sender, TextChangedEventArgs e)
+        private void ActTxt_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

@@ -11,7 +11,7 @@ namespace InternWPF.ViewModel
         private string _title;
         private string _activities;
 
-        private JournalsVM _journalsVM;
+        private readonly JournalsVM _journalsVM;
 
         public ObservableCollection<JournalEntry> SelectedJournalEntries { get; set; } = new ObservableCollection<JournalEntry>();
 
@@ -78,32 +78,6 @@ namespace InternWPF.ViewModel
         }
 
         public ICommand SubmitCommand { get; }
-
-        private bool CanSubmit(object parameter)
-        {
-            return Date.HasValue && !string.IsNullOrWhiteSpace(Title) && !string.IsNullOrWhiteSpace(Activities);
-        }
-
-        private void OnSubmit(object parameter)
-        {
-            if (SelectedJournal != null)
-            {
-                var newEntry = new JournalEntry
-                {
-                    EntryDate = Date?.ToString("d"),
-                    Title = Title,
-                    Activities = Activities
-                };
-
-                SelectedJournal.Entries.Add(newEntry);
-                SelectedJournalEntries.Add(newEntry);
-
-                // Clear fields after submission
-                Date = null;
-                Title = string.Empty;
-                Activities = string.Empty;
-            }
-        }
 
         private void LoadEntries()
         {

@@ -94,7 +94,7 @@
             VerticalAlignment="Top"
             Height="200" 
             TextWrapping="Wrap" 
-            AcceptsReturn="True" TextChanged="actTxt_TextChanged"/>
+            AcceptsReturn="True" TextChanged="ActTxt_TextChanged"/>
 
 
         <Button 

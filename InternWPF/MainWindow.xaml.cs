@@ -7,15 +7,11 @@ namespace InternWPF
 {
     public partial class MainWindow : Window
     {
-        private JournalsVM journalsVM;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            JournalsVM journalsVM = new JournalsVM();
-            Journals journalsView = new Journals { DataContext = journalsVM };
-            Entries entriesView = new Entries(journalsVM);
 
         }
 
