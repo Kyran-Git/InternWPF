@@ -10,12 +10,9 @@ namespace InternWPF.ViewModel
 {
     public class MainVM
     {
-        public ObservableCollection<Journal> Journals { get; set; }
-
         public MainVM()
         {
-            Journals = new ObservableCollection<Journal>();
-            // Initialize the Journals collection here.
+
         }
     }
 

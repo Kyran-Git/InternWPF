@@ -1,35 +1,29 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Page_Navigation_App.Utilities
+namespace InternWPF.ViewModel
 {
     public class RelayCommand : ICommand
     {
-        private readonly Action _execute;
-        private readonly Func<bool> _canExecute;
+        private Action<object> execute;
+        private Func<object, bool> canExecute;
 
-        public RelayCommand(Action execute, Func<bool> canExecute = null)
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
-            _execute = execute;
-            _canExecute = canExecute;
-        }
-
-        public bool CanExecute(object parameter)
-        {
-            return _canExecute == null || _canExecute();
-        }
-
-        public void Execute(object parameter)
-        {
-            _execute();
+            this.execute = execute;
+            this.canExecute = canExecute;
         }
 
         public event EventHandler CanExecuteChanged;
 
-        public void RaiseCanExecuteChanged()
+        public bool CanExecute(object parameter)
         {
-            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+            return canExecute == null || canExecute(parameter);
+        }
+
+        public void Execute(object parameter)
+        {
+            execute(parameter);
         }
     }
-
 }

@@ -8,16 +8,12 @@
         <view:Home/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:JournalsVM}">
-        <view:Journals />
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:EntriesVM}">
-        <view:Entries/>
-    </DataTemplate>
-
     <DataTemplate DataType="{x:Type vm:SettingVM}">
         <view:Settings/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:JournalVM}">
+        <view:Journal/>
     </DataTemplate>
 
 </ResourceDictionary>

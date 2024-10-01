@@ -1,5 +1,4 @@
-﻿using InternWPF.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +16,13 @@ using System.Windows.Shapes;
 namespace InternWPF.View
 {
     /// <summary>
-    /// Interaction logic for Entries.xaml
+    /// Interaction logic for Journal.xaml
     /// </summary>
-    public partial class Entries : UserControl
+    public partial class Journal : UserControl
     {
-        public Entries()
+        public Journal()
         {
             InitializeComponent();
-            DataContext = new EntriesVM();
         }
     }
 }

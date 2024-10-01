@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace InternWPF.Model
 {
@@ -11,11 +6,5 @@ namespace InternWPF.Model
     {
         public string Name { get; set; }
         public ObservableCollection<Entry> Entries { get; set; }
-
-        public Journal(string name)
-        {
-            Name = name;
-            Entries = new ObservableCollection<Entry>();
-        }
     }
 }
