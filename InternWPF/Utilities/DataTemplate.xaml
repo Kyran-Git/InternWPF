@@ -3,16 +3,9 @@
                     xmlns:vm="clr-namespace:InternWPF.ViewModel"
                     xmlns:view="clr-namespace:InternWPF.View">
 
+
     <DataTemplate DataType="{x:Type vm:HomeVM}">
-        <view:Home />
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:UsersVM}">
-        <view:Users />
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:SettingVM}">
-        <view:Settings />
+        <view:Home/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:JournalsVM}">
@@ -20,7 +13,11 @@
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:EntriesVM}">
-        <view:Entries />
+        <view:Entries/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:SettingVM}">
+        <view:Settings/>
     </DataTemplate>
 
 </ResourceDictionary>

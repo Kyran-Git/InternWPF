@@ -8,6 +8,5 @@ namespace InternWPF.ViewModel
 {
     internal class HomeVM
     {
-
     }
 }
