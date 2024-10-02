@@ -7,11 +7,12 @@
         xmlns:vm="clr-namespace:InternWPF.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="650" 
-        Width="850"
-        AllowsTransparency="True"
+        Height="700" 
+        Width="1000"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
+        AllowsTransparency="True" 
+        ResizeMode="CanResizeWithGrip"
         Background="Transparent">
 
     <Window.Resources>
@@ -30,6 +31,7 @@
                          Storyboard.TargetProperty="Width"
                          To="80" Duration="0:0:0.5"/>
         </Storyboard>
+
     </Window.Resources>
 
 

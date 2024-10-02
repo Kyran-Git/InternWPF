@@ -48,7 +48,11 @@ namespace InternWPF.ViewModel
             Journals = new ObservableCollection<Journal>();
             CreateJournalCommand = new RelayCommand(CreateNewJournal);
             AddEntryCommand = new RelayCommand(AddNewEntry);
+
+            // Initialize NewEntryDate to today's date
+            NewEntryDate = DateTime.Now;
         }
+
 
         // Create new journal
         private void CreateNewJournal(object parameter)

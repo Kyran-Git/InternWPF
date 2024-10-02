@@ -170,7 +170,7 @@
 
     <Style x:Key="Submit_Style" TargetType="Button">
         
-        <Setter Property="Background" Value="LightBlue"/>
+        <Setter Property="Background" Value="LightGray"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
