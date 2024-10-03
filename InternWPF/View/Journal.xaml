@@ -14,6 +14,7 @@
                 <ResourceDictionary Source="/Styles/TextBox.xaml"/>
                 <ResourceDictionary Source="/Styles/DatePick.xaml"/>
                 <ResourceDictionary Source="/Styles/Button.xaml"/>
+                <ResourceDictionary Source="/Styles/Text.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -28,7 +29,11 @@
 
 
         <StackPanel Grid.Column="0" Margin="10,10,10,10">
-            <TextBlock Text="Create New Journal" FontWeight="Bold" Margin="10"/>
+            <TextBlock 
+                Style="{StaticResource Text_Style}"
+                Text="Create New Journal" 
+                FontWeight="Bold" 
+                Margin="10"/>
 
 
             <TextBox 
@@ -47,6 +52,7 @@
 
 
             <TextBlock 
+                Style="{StaticResource Text_Style}"
                 Text="Select Journal" 
                 FontWeight="Bold" 
                 Margin="10"/>
@@ -62,7 +68,11 @@
 
 
         <StackPanel Grid.Column="1" Margin="10,10,10,10">
-            <TextBlock Text="Create New Entry" FontWeight="Bold" Margin="10"/>
+            <TextBlock 
+                Style="{StaticResource Text_Style}"
+                Text="Create New Entry" 
+                FontWeight="Bold" 
+                Margin="10"/>
 
 
             <DatePicker SelectedDate="{Binding NewEntryDate}" 
@@ -94,8 +104,10 @@
 
 
             <TextBlock 
+                Style="{StaticResource Text_Style}"
                 Text="Entries in Selected Journal" 
                 FontWeight="Bold" Margin="10"/>
+            
             <ListView 
                 ItemsSource="{Binding SelectedJournal.Entries}" 
                 Margin="10">
@@ -116,7 +128,7 @@
 
                         <GridViewColumn 
                             Header="Activities" 
-                            Width="auto"
+                            Width="300"
                             DisplayMemberBinding="{Binding Activities}" />
                     </GridView>
                 </ListView.View>
