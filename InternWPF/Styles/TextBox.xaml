@@ -15,7 +15,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="Gray" 
                         BorderThickness="1"
-                        CornerRadius="20">
+                        CornerRadius="10">
                         <ScrollViewer 
                             x:Name="PART_ContentHost" 
                             Margin="0" 

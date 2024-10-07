@@ -52,7 +52,7 @@
 
             <!-- Sidebar Grid -->
             <Grid x:Name="SidebarGrid" Width="80" HorizontalAlignment="Left">
-                <Border Background="#272B2F" CornerRadius="30,0,0,30"/>
+                <Border Background="#272B" CornerRadius="30,0,0,30"/>
 
                 <StackPanel>
                     <!-- Minimize/Expand Button -->
@@ -64,7 +64,7 @@
                                   HorizontalAlignment="Left"
                                   Margin="18"
                                   IsChecked="True"
-                                  Background="#212529"
+                                  Background="#2125"
                                   Foreground="White"
                                   BorderBrush="Transparent"
                                   BorderThickness="0"
