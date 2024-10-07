@@ -17,7 +17,7 @@
     <!--MAIN GRID-->
     <Grid>
       <!--Window Border-->
-        <Border Background="#eeeeee"
+        <Border Background="#FFFFFF"
                 CornerRadius="20"/>
         
         <!--Main Grid-->
@@ -26,6 +26,50 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+        </Grid>
+        
+        <!--Sidebar-->
+        <Grid 
+            x:Name="sidebar" 
+            Width="80" 
+            HorizontalAlignment="Left">
+
+            <Border Background="#FFFFFF" CornerRadius="20,0,0,20" BorderBrush="Black" BorderThickness="1">
+
+                <StackPanel>
+                    <ToggleButton x:Name="SidebarToggleButton"
+                      Content="☰"
+                      Width="40"
+                      Height="40"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Left"
+                      Margin="18"
+                      IsChecked="True"
+                      Background="#212529"
+                      Foreground="White"
+                      BorderBrush="Transparent"
+                      BorderThickness="0"
+                      Checked="SideButton_Checked"
+                      Unchecked="SideButton_Unchecked">
+
+                        <ToggleButton.Template>
+                            <ControlTemplate TargetType="ToggleButton">
+                                <Border Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="20">
+                                    <ContentPresenter HorizontalAlignment="Center" 
+                                          VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </ToggleButton.Template>
+                    </ToggleButton>
+                </StackPanel>
+                
+                
+                
+            </Border>
+            
         </Grid>
     </Grid>
 </Window>
