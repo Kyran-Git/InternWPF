@@ -42,7 +42,7 @@
     <!-- MAIN GRID -->
     <Grid>
         <!-- Window Border -->
-        <Border Background="#212529" CornerRadius="30"/>
+        <Border Background="#101820" CornerRadius="30"/>
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -52,7 +52,7 @@
 
             <!-- Sidebar Grid -->
             <Grid x:Name="SidebarGrid" Width="80" HorizontalAlignment="Left">
-                <Border Background="#272B" CornerRadius="30,0,0,30"/>
+                <Border Background="#FEE715" CornerRadius="30,0,0,30"/>
 
                 <StackPanel>
                     <!-- Minimize/Expand Button -->
