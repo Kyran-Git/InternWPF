@@ -2,63 +2,55 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!-- Style for DatePicker with Rounded Corners -->
-    <Style x:Key="datePick_Style"
-           TargetType="DatePicker">
+    <Style x:Key="datePick_Style" TargetType="DatePicker">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="DatePicker">
-                    <Border Background="LightGray"
-                            CornerRadius="10"
-                            BorderThickness="2"
-                            BorderBrush="Black">
+                    <Border Background="#2B2B2B"
+                        CornerRadius="10"
+                        BorderThickness="2"
+                        BorderBrush="Gray">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
-
-                            <!-- Datepicker textbox -->
                             <DatePickerTextBox x:Name="PART_TextBox"
-                                               VerticalContentAlignment="Center"
-                                               HorizontalAlignment="Stretch"
-                                               Margin="5"
-                                               Background="Transparent"
-                                               Foreground="Black"
-                                               BorderThickness="0"/>
-
-                            <!-- Calendar button -->
+                                           VerticalContentAlignment="Center"
+                                           HorizontalAlignment="Stretch"
+                                           Margin="5"
+                                           Background="Transparent"
+                                           Foreground="White"
+                                           BorderThickness="0"/>
                             <Button x:Name="PART_Button"
-                                    Grid.Column="1"
-                                    Content="▼"
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Center"
-                                    Width="25"
-                                    Height="25"
-                                    Margin="5,0,5,0"
-                                    Background="LightGray"
-                                    BorderBrush="Transparent"
-                                    Focusable="False"
-                                    IsTabStop="False"/>
-
-                            <!-- Calendar popup -->
-                            <Popup x:Name="PART_Popup"
-                                   AllowsTransparency="True"
-                                   Placement="Bottom"
-                                   StaysOpen="False"
-                                   IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
-                                   Focusable="False">
-                                <Border Background="White"
-                                        BorderBrush="Black"
-                                        BorderThickness="1">
-                                    <Calendar x:Name="PART_Calendar"
-                                              IsTabStop="False"
-                                              SelectedDate="{Binding SelectedDate, RelativeSource={RelativeSource TemplatedParent}}"/>
-                                </Border>
-                            </Popup>
+                                Grid.Column="1"
+                                Content="▼"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Width="25"
+                                Height="25"
+                                Margin="5,0,5,0"
+                                Background="#333333"
+                                BorderBrush="Transparent"
+                                Focusable="False"
+                                IsTabStop="False"/>
+                                <Popup x:Name="PART_Popup"
+                               AllowsTransparency="True"
+                               Placement="Bottom"
+                               StaysOpen="False"
+                               IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                               Focusable="False">
+                                    <Border Background="White" BorderBrush="Gray" BorderThickness="1">
+                                        <Calendar x:Name="PART_Calendar"
+                                          IsTabStop="False"
+                                          SelectedDate="{Binding SelectedDate, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    </Border>
+                                </Popup>
                         </Grid>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
 </ResourceDictionary>

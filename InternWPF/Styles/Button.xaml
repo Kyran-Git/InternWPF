@@ -169,8 +169,8 @@
     </Style>
 
     <Style x:Key="Submit_Style" TargetType="Button">
-        
-        <Setter Property="Background" Value="LightGray"/>
+        <Setter Property="Background" Value="#333333"/>
+        <!-- Darker background -->
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -178,39 +178,35 @@
         <Setter Property="Padding" Value="10,5"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Width" Value="80"/>
-
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="120"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border
-                        x:Name="buttonBorder"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="10">
-                        
-                        <ContentPresenter 
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"/>
+                    x:Name="buttonBorder"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="12">
+                        <!-- Softer corners -->
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
-
                     <ControlTemplate.Triggers>
-                        
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="buttonBorder" Property="Background" Value="DodgerBlue"/>
+                            <Setter TargetName="buttonBorder" Property="Background" Value="#F9E795"/>
+                            <!-- Highlight color -->
                         </Trigger>
-
-                        
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="buttonBorder" Property="Background" Value="DarkBlue"/>
+                            <Setter TargetName="buttonBorder" Property="Background" Value="#FEE715"/>
+                            <!-- Darker press state -->
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
 
 
 </ResourceDictionary>

@@ -2,31 +2,31 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style x:Key="TextBox_Style" TargetType="TextBox">
-        <Setter Property="Background" Value="#404040"/>
+        <Setter Property="Background" Value="#2B2B2B"/>
+        <!-- Darker background -->
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Padding" Value="8"/>
-
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
                     <Border 
-                        x:Name="border"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="Gray" 
-                        BorderThickness="1"
-                        CornerRadius="10">
+                    x:Name="border"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                        <!-- Softer corners -->
                         <ScrollViewer 
-                            x:Name="PART_ContentHost" 
-                            Margin="0" 
-                            Padding="{TemplateBinding Padding}" />
+                        x:Name="PART_ContentHost" 
+                        Margin="0" 
+                        Padding="{TemplateBinding Padding}" />
                     </Border>
-
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="DodgerBlue"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="#007ACC"/>
+                            <!-- Soft blue focus -->
                         </Trigger>
-
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="BorderBrush" Value="LightGray"/>
                         </Trigger>
@@ -35,5 +35,6 @@
             </Setter.Value>
         </Setter>
     </Style>
+
 
 </ResourceDictionary>

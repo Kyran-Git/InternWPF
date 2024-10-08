@@ -2,53 +2,39 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!-- ListView Style with Key -->
-    <Style x:Key="ListView_Style" 
-           TargetType="ListView">
+    <Style x:Key="ListView_Style" TargetType="ListView">
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="Gray"/>
-        <Setter Property="Background" Value="White"/>
-        <!-- Rounded corners -->
+        <Setter Property="Background" Value="#2B2B2B"/>
+        <!-- Dark background -->
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="ItemContainerStyle">
             <Setter.Value>
                 <Style TargetType="ListViewItem">
-                    <!-- Default Background -->
-                    <Setter Property="Background" Value="White"/>
-                    <!-- Rounded Corners -->
+                    <Setter Property="Background" Value="#2B2B2B"/>
                     <Setter Property="Margin" Value="5"/>
                     <Setter Property="BorderBrush" Value="Gray"/>
                     <Setter Property="BorderThickness" Value="0.5"/>
                     <Setter Property="SnapsToDevicePixels" Value="True"/>
-
-                    <!-- Selected Item Style -->
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="ListViewItem">
-                                <Border Name="Border" 
-                                        Background="{TemplateBinding Background}" 
-                                        BorderBrush="{TemplateBinding BorderBrush}" 
-                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                        CornerRadius="20">
+                                <Border Name="Border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="12">
+                                    <!-- Softer corners -->
                                     <ContentPresenter />
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="Border" 
-                                                Property="Background" 
-                                                Value="LightBlue"/>
-                                        
-                                        <Setter TargetName="Border" 
-                                                Property="BorderBrush" 
-                                                Value="Blue"/>
+                                        <Setter TargetName="Border" Property="Background" Value="#007ACC"/>
+                                        <Setter TargetName="Border" Property="BorderBrush" Value="#005B9A"/>
                                     </Trigger>
-                                    <Trigger 
-                                        Property="IsMouseOver"
-                                        Value="True">
-                                        <Setter TargetName="Border" 
-                                                Property="Background" 
-                                                Value="LightGray"/>
-                                        
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="#3B3B3B"/>
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
@@ -59,12 +45,5 @@
         </Setter>
     </Style>
 
-    <!-- GridView Column Headers Style -->
-    <Style TargetType="GridViewColumnHeader">
-        <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Background" Value="LightGray"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="5"/>
-    </Style>
 
 </ResourceDictionary>
