@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InternWPF.View"
         mc:Ignorable="d"
-        Title="JournalPopup" Height="450" Width="800">
+        Title="JournalPopup" Height="200" Width="300">
     <Grid>
         
     </Grid>
