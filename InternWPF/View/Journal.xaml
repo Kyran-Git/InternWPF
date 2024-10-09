@@ -23,8 +23,8 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="123*" />
-            <ColumnDefinition Width="277*" />
+            <ColumnDefinition Width="270*" />
+            <ColumnDefinition Width="530*" />
         </Grid.ColumnDefinitions>
 
 
@@ -107,7 +107,7 @@
                 Style="{StaticResource Text_Style}"
                 Text="Entries in Selected Journal" 
                 FontWeight="Bold" Margin="10"/>
-            
+
             <ListView 
                 ItemsSource="{Binding SelectedJournal.Entries}" 
                 Margin="10">
