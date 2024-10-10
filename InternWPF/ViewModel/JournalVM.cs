@@ -3,20 +3,24 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using InternWPF.Model;
+using InternWPF.View;
 
 namespace InternWPF.ViewModel
 {
     public class JournalVM : INotifyPropertyChanged
     {
-        public ObservableCollection<Journal> Journals { get; set; }
+        public ObservableCollection<JournalModel> Journals { get; set; }
 
         // Commands
         public ICommand CreateJournalCommand { get; set; }
         public ICommand AddEntryCommand { get; set; }
 
+        public ICommand OpenJournalPopupCommand { get; set; }
+        public ICommand OpenEntryPopupCommand { get; set; }
+
         // Selected journal
-        private Journal _selectedJournal;
-        public Journal SelectedJournal
+        private JournalModel _selectedJournal;
+        public JournalModel SelectedJournal
         {
             get { return _selectedJournal; }
             set
@@ -45,9 +49,12 @@ namespace InternWPF.ViewModel
 
         public JournalVM()
         {
-            Journals = new ObservableCollection<Journal>();
+            Journals = new ObservableCollection<JournalModel>();
             CreateJournalCommand = new RelayCommand(CreateNewJournal);
             AddEntryCommand = new RelayCommand(AddNewEntry);
+
+            OpenJournalPopupCommand = new RelayCommand(OpenJournalPopup);
+            OpenEntryPopupCommand = new RelayCommand(OpenEntryPopup);
 
             // Initialize NewEntryDate to today's date
             NewEntryDate = DateTime.Now;
@@ -59,7 +66,7 @@ namespace InternWPF.ViewModel
         {
             if (!string.IsNullOrEmpty(NewJournalName))
             {
-                var newJournal = new Journal { Name = NewJournalName, Entries = new ObservableCollection<Entry>() };
+                var newJournal = new JournalModel { Name = NewJournalName, Entries = new ObservableCollection<Entry>() };
                 Journals.Add(newJournal);
                 SelectedJournal = newJournal; // Automatically select the new journal
                 NewJournalName = string.Empty; // Clear the input field after creation
@@ -89,6 +96,21 @@ namespace InternWPF.ViewModel
                 OnPropertyChanged(nameof(NewEntryTitle));
                 OnPropertyChanged(nameof(NewEntryActivities));
             }
+        }
+
+        private void OpenJournalPopup(object parameter)
+        {
+            var popup = new JournalPopup();
+            popup.DataContext = this; // Bind the popup to the same VM
+            popup.ShowDialog(); // Open popup as modal window
+        }
+
+        // Method to open the Entry creation popup
+        private void OpenEntryPopup(object parameter)
+        {
+            var popup = new EntryPopup();
+            popup.DataContext = this; // Bind the popup to the same VM
+            popup.ShowDialog(); // Open popup as modal window
         }
 
         // Implement INotifyPropertyChanged

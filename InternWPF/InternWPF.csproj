@@ -56,7 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Entry.cs" />
-    <Compile Include="Model\Journal.cs" />
+    <Compile Include="Model\JournalModel.cs" />
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="Utilities\VMBase.cs" />

@@ -2,7 +2,7 @@
 
 namespace InternWPF.Model
 {
-    public class Journal
+    public class JournalModel
     {
         public string Name { get; set; }
         public ObservableCollection<Entry> Entries { get; set; }

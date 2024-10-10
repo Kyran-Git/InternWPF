@@ -19,121 +19,40 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-
     <Grid>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="270*" />
             <ColumnDefinition Width="530*" />
         </Grid.ColumnDefinitions>
 
-
         <StackPanel Grid.Column="0" Margin="10,10,10,10">
-            <TextBlock 
-                Style="{StaticResource Text_Style}"
-                Text="Create New Journal" 
-                FontWeight="Bold" 
-                Margin="10"/>
+            <TextBlock Style="{StaticResource Text_Style}" Text="Create New Journal" FontWeight="Bold" Margin="10"/>
 
+            <!-- Button to open the journal creation popup -->
+            <Button Content="Create Journal" Command="{Binding OpenJournalPopupCommand}" Width="200" Margin="10" Style="{StaticResource Submit_Style}"/>
 
-            <TextBox 
-                Text="{Binding NewJournalName, UpdateSourceTrigger=PropertyChanged}" 
-                Width="200" 
-                Margin="10"
-                Style="{StaticResource TextBox_Style}"/>
+            <TextBlock Style="{StaticResource Text_Style}" Text="Select Journal" FontWeight="Bold" Margin="10"/>
 
-
-            <Button 
-                Content="Create Journal" 
-                Command="{Binding CreateJournalCommand}" 
-                Width="200" 
-                Margin="10"
-                Style="{StaticResource Submit_Style}"/>
-
-
-            <TextBlock 
-                Style="{StaticResource Text_Style}"
-                Text="Select Journal" 
-                FontWeight="Bold" 
-                Margin="10"/>
-
-            <ComboBox 
-                ItemsSource="{Binding Journals}" 
-                SelectedItem="{Binding SelectedJournal}" 
-                DisplayMemberPath="Name"
-                Width="200" 
-                Margin="10"/>
-
+            <ComboBox ItemsSource="{Binding Journals}" SelectedItem="{Binding SelectedJournal}" DisplayMemberPath="Name" Width="200" Margin="10"/>
         </StackPanel>
 
-
         <StackPanel Grid.Column="1" Margin="10,10,10,10">
-            <TextBlock 
-                Style="{StaticResource Text_Style}"
-                Text="Create New Entry" 
-                FontWeight="Bold" 
-                Margin="10"/>
+            <TextBlock Style="{StaticResource Text_Style}" Text="Create New Entry" FontWeight="Bold" Margin="10"/>
 
+            <!-- Button to open the entry creation popup -->
+            <Button Content="Add Entry" Command="{Binding OpenEntryPopupCommand}" Width="200" Margin="10" Style="{StaticResource Submit_Style}"/>
 
-            <DatePicker SelectedDate="{Binding NewEntryDate}" 
-                        Width="200" 
-                        Margin="10"
-                        Style="{StaticResource datePick_Style}"/>
+            <TextBlock Style="{StaticResource Text_Style}" Text="Entries in Selected Journal" FontWeight="Bold" Margin="10"/>
 
-
-            <TextBox Text="{Binding NewEntryTitle, UpdateSourceTrigger=PropertyChanged}" 
-                     Width="200" 
-                     Margin="10" 
-                     Style="{StaticResource TextBox_Style}"/>
-
-
-            <TextBox Text="{Binding NewEntryActivities, UpdateSourceTrigger=PropertyChanged}" 
-                     Width="200" 
-                     Height="100" 
-                     TextWrapping="Wrap" 
-                     AcceptsReturn="True"
-                     Margin="10"
-                     Style="{StaticResource TextBox_Style}"/>
-
-
-            <Button Content="Add Entry" 
-                    Command="{Binding AddEntryCommand}" 
-                    Width="200" 
-                    Margin="10"
-                    Style="{StaticResource Submit_Style}"/>
-
-
-            <TextBlock 
-                Style="{StaticResource Text_Style}"
-                Text="Entries in Selected Journal" 
-                FontWeight="Bold" Margin="10"/>
-
-            <ListView 
-                ItemsSource="{Binding SelectedJournal.Entries}" 
-                Margin="10">
+            <ListView ItemsSource="{Binding SelectedJournal.Entries}" Margin="10">
                 <ListView.View>
                     <GridView>
-
-                        <GridViewColumn 
-                            Header="Title"
-                            Width="125"
-                            DisplayMemberBinding="{Binding Title}" />
-
-
-                        <GridViewColumn 
-                            Header="Date"
-                            Width="80"
-                            DisplayMemberBinding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
-
-
-                        <GridViewColumn 
-                            Header="Activities" 
-                            Width="300"
-                            DisplayMemberBinding="{Binding Activities}" />
+                        <GridViewColumn Header="Title" Width="125" DisplayMemberBinding="{Binding Title}" />
+                        <GridViewColumn Header="Date" Width="80" DisplayMemberBinding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                        <GridViewColumn Header="Activities" Width="300" DisplayMemberBinding="{Binding Activities}" />
                     </GridView>
                 </ListView.View>
             </ListView>
-
         </StackPanel>
     </Grid>
 </UserControl>
