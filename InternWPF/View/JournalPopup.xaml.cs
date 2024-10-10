@@ -13,6 +13,12 @@ namespace InternWPF.View
             InitializeComponent();
             this.DataContext = new JournalVM();
         }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close(); // This closes the popup window
+        }
+
     }
 
 }

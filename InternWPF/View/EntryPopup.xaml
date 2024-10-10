@@ -5,7 +5,7 @@
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
-        Title="New Entry" Height="420" Width="400">
+        Title="New Entry" Height="450" Width="400">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -22,19 +22,30 @@
 
     <Grid>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
         <Border Background="#FEE715" CornerRadius="30"/>
         
         <StackPanel Margin="20">
-            <TextBlock Text="Entry Title:" FontSize="20"/>
-            <TextBox Style="{StaticResource TextBox_Style}" Text="{Binding NewEntryTitle}" Width="300" Margin="10"/>
+            <Button Grid.Row="0" Content="X" Click="CloseButton_Click" Width="30" HorizontalAlignment="Right" Style="{StaticResource ExitApp}"/>
 
-            <TextBlock Text="Entry Date:" FontSize="20"/>
-            <DatePicker SelectedDate="{Binding NewEntryDate}" Width="300" Margin="10" Style="{StaticResource datePick_Style}"/>
+            <TextBlock Grid.Row="1" Text="Entry Title:" FontSize="20"/>
+            <TextBox Grid.Row="1" Style="{StaticResource TextBox_Style}" Text="{Binding NewEntryTitle}" Width="300" Margin="10"/>
 
-            <TextBlock Text="Activities:" FontSize="20"/>
-            <TextBox Text="{Binding NewEntryActivities}" Width="300" Height="100" TextWrapping="Wrap" AcceptsReturn="True" Margin="10" Style="{StaticResource TextBox_Style}"/>
+            <TextBlock Grid.Row="2" Text="Entry Date:" FontSize="20"/>
+            <DatePicker Grid.Row="2" SelectedDate="{Binding NewEntryDate}" Width="300" Margin="10" Style="{StaticResource datePick_Style}"/>
 
-            <Button Content="Add Entry" Command="{Binding AddEntryCommand}" Width="100" Margin="10" Style="{StaticResource Submit_Style}" />
+            <TextBlock Grid.Row="3" Text="Activities:" FontSize="20"/>
+            <TextBox Grid.Row="3" Text="{Binding NewEntryActivities}" Width="300" Height="100" TextWrapping="Wrap" AcceptsReturn="True" Margin="10" Style="{StaticResource TextBox_Style}"/>
+
+            <Button Grid.Row="4" Content="Add Entry" Command="{Binding AddEntryCommand}" Width="100" Margin="10" Style="{StaticResource Submit_Style}" />
         </StackPanel>
     </Grid>
 </Window>

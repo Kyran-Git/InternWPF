@@ -5,7 +5,7 @@
         AllowsTransparency="True" 
         Background="Transparent"
         WindowStyle="None"
-        Title="New Journal" Height="200" Width="400">
+        Title="New Journal" Height="300" Width="400">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -22,9 +22,18 @@
 
     <Grid>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
         <Border Background="#FEE715" CornerRadius="30"/>
         
         <StackPanel Margin="20">
+            <Button Grid.Row="0" Content="X" Click="CloseButton_Click" Width="30" HorizontalAlignment="Right" Style="{StaticResource ExitApp}"/>
+
+
             <TextBlock Text="Enter Journal Name:" FontSize="20"/>
             <TextBox Text="{Binding NewJournalName}" Width="300" Margin="10" Style="{StaticResource TextBox_Style}"/>
             <Button Content="Create Journal" Command="{Binding CreateJournalCommand}" Width="100" Margin="10" Style="{StaticResource Submit_Style}"/>
