@@ -2,16 +2,32 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowStartupLocation="CenterScreen"
-        WindowStyle="None"
         AllowsTransparency="True" 
+        Background="Transparent"
+        WindowStyle="None"
         Title="New Journal" Height="200" Width="400">
-    
-    
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/ListView.xaml"/>
+                <ResourceDictionary Source="/Styles/TextBox.xaml"/>
+                <ResourceDictionary Source="/Styles/DatePick.xaml"/>
+                <ResourceDictionary Source="/Styles/Button.xaml"/>
+                <ResourceDictionary Source="/Styles/Text.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+
     <Grid>
+
+        <Border Background="#FEE715" CornerRadius="30"/>
+        
         <StackPanel Margin="20">
-            <TextBlock Text="Enter Journal Name:"/>
-            <TextBox Text="{Binding NewJournalName}" Width="300" Margin="10"/>
-            <Button Content="Create Journal" Command="{Binding CreateJournalCommand}" Width="100" Margin="10"/>
+            <TextBlock Text="Enter Journal Name:" FontSize="20"/>
+            <TextBox Text="{Binding NewJournalName}" Width="300" Margin="10" Style="{StaticResource TextBox_Style}"/>
+            <Button Content="Create Journal" Command="{Binding CreateJournalCommand}" Width="100" Margin="10" Style="{StaticResource Submit_Style}"/>
         </StackPanel>
     </Grid>
 </Window>
