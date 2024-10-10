@@ -5,6 +5,8 @@ using System.Windows.Input;
 using InternWPF.Model;
 using InternWPF.View;
 
+
+
 namespace InternWPF.ViewModel
 {
     public class JournalVM : INotifyPropertyChanged
